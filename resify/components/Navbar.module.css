@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
 .videonormal {
     font-family: "video", serif;
     font-weight: 300;
+    font-style: normal;
+}
+
+.videosemibold {
+    font-family: "video", serif;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -8,4 +16,9 @@
     font-family: "video", serif;
     font-weight: 600;
     font-style: normal;
+}
+
+.poppins {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
 }
