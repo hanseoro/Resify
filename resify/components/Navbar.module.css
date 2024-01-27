@@ -1,5 +1,11 @@
-.container {
+.videonormal {
     font-family: "video", serif;
-    font-weight: bold;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.videobold {
+    font-family: "video", serif;
+    font-weight: 600;
     font-style: normal;
 }
