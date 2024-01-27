@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="stylesheet" href="https://use.typekit.net/bgq4hkc.css"></link>
+      <link rel="stylesheet" href="https://use.typekit.net/bgq4hkc.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap" />
       <body className={inter.className}>{children}</body>
     </html>
   );
