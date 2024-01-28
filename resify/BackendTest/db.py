@@ -7,13 +7,6 @@ client = MongoClient(uri,tlsCAFile=certifi.where())
 db = client["Resify"]
 users_col = db["users"]
 
-users_sample= {"first_name":"alex", "last_name":"john", "email":"alexjohn@yahoo.com", 
-                   "phone_number":"912391239", "password":"2913asdkjA", "properties":[]}
-properties_sample = {"address1":"81 Campus dr", "address2": "43", "state": "CA", "zip5": "92143"}
-users_sample2 = {"first_name":"James", "last_name":"Rish", "email":"jamesrich@yahoo.com", 
-                   "phone_number":"2931312", "password":"sdaJ9231A", "properties":[]}
-properties_sample2 = {"address1":"32 Crossgarve", "address2": "", "state": "KA", "zip5": "43123"}
-
 def add_property(data: dict):
     """Adds a property to database and adds that property
     to the users list of owned proeprties"""
@@ -42,12 +35,3 @@ def check_token(token:uuid4):
     #get house data from property collections using house id
     house_data = db["properties"].find_one({"_id":property_id}, {})
     return house_data
-
-
-#if __name__ == "__main__":
-#    #print(users_col.find_one({'email': 'jamesrich@yahoo.com'},{'properties':1}))
-#     
-#    #print(db["property"].find_one({"_id" : property_id}))
-#    add_property_test = {"address1":"99 Lovelane","address2":"","state":"KS", "zip5":"12312","email":"efkkl@yahoo.com"}
-#    add_property(add_property_test)
-   
