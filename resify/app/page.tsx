@@ -1,7 +1,12 @@
 import Navbar from "@/components/Navbar";
+import { currentUser, useUser } from "@clerk/nextjs";
+const axios = require("axios");
 // import '../styles/fonts.css';
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
+  await axios.post("http://127.0.0.1:8000/signup_user_data", user);
+  console.log(user);
   return (
     <>
       <Navbar />
