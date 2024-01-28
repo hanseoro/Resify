@@ -1,6 +1,8 @@
 import React from "react";
 import cn from "./Navbar.module.css";
-import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
+
 
 const Navbar: React.FC = () => {
   return (
@@ -25,7 +27,6 @@ const Navbar: React.FC = () => {
                 }
               >
                 <SignOutButton>Collective</SignOutButton>
-                
               </a>
               <a
                 href="#"
