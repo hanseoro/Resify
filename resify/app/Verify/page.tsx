@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import cn from "@/components/Navbar.module.css";
 import NavbarHome from "@/components/NavbarHome";
@@ -16,15 +16,33 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const formSchema = z
-  .object({
-    addressLineOne: z.string().min(1, "Address Line 1 is required"),
-    addressLineTwo: z.string().optional(), // Optional field for Address Line 2
-    city: z.string().min(1, "City is required"),
-    state: z.string().min(2, "State is required").max(2, "State must be 2 characters"),
-    zipCode: z.string().min(5, "ZIP Code must be 5 digits").max(5, "ZIP Code must be 5 digits"),
-    ssn: z.string().regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in the format XXX-XX-XXXX"),
-  });
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+const formSchema = z.object({
+  addressLineOne: z.string().min(1, "Address Line 1 is required"),
+  addressLineTwo: z.string().optional(), // Optional field for Address Line 2
+  city: z.string().min(1, "City is required"),
+  state: z
+    .string()
+    .min(2, "State is required")
+    .max(2, "State must be 2 characters"),
+  zipCode: z
+    .string()
+    .min(5, "ZIP Code must be 5 digits")
+    .max(5, "ZIP Code must be 5 digits"),
+  ssn: z
+    .string()
+    .regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in the format XXX-XX-XXXX"),
+});
 
 export default function Home() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -38,9 +56,14 @@ export default function Home() {
       ssn: "",
     },
   });
-
+  const handleContinue = () => {
+    window.location.href = "/";
+  };
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
     console.log({ values });
+    setTimeout(() => {
+      window.location.href = "/Home";
+    }, 3000);
   };
 
   return (
@@ -57,32 +80,40 @@ export default function Home() {
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
               className="max-w-md w-full flex flex-col gap-4"
-        >
-        <FormField
-            control={form.control}
-            name="addressLineOne"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input placeholder="Address Line 1" {...field} className={"text-secondary " + cn.videomedium}/>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="addressLineTwo"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input placeholder="Address Line 2" {...field} className={"text-secondary " + cn.videomedium}/>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="flex -mx gap-4">
+            >
+              <FormField
+                control={form.control}
+                name="addressLineOne"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Address Line 1"
+                        {...field}
+                        className={"text-secondary " + cn.videomedium}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="addressLineTwo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Address Line 2"
+                        {...field}
+                        className={"text-secondary " + cn.videomedium}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className="flex -mx gap-4">
                 <FormField
                   control={form.control}
                   name="city"
@@ -90,7 +121,11 @@ export default function Home() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="City" {...field} className={"text-secondary " + cn.videomedium}/>
+                        <Input
+                          placeholder="City"
+                          {...field}
+                          className={"text-secondary " + cn.videomedium}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -103,7 +138,11 @@ export default function Home() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="State" {...field} className={"text-secondary " + cn.videomedium}/>
+                        <Input
+                          placeholder="State"
+                          {...field}
+                          className={"text-secondary " + cn.videomedium}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,7 +155,11 @@ export default function Home() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="ZIP Code" {...field} className={"text-secondary " + cn.videomedium}/>
+                        <Input
+                          placeholder="ZIP Code"
+                          {...field}
+                          className={"text-secondary " + cn.videomedium}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -130,15 +173,43 @@ export default function Home() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="SSN" {...field} className={"text-secondary " + cn.videomedium}/>
+                      <Input
+                        placeholder="SSN"
+                        {...field}
+                        className={"text-secondary " + cn.videomedium}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" className={"bg-secondary text-primary " + cn.videosemibold}>
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    type="submit"
+                    className={"bg-secondary text-primary " + cn.videosemibold}
+                  >
+                    Submit
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Verified!</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Generate Your Certificate Code on the Home Page
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogAction>Continue</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+              {/* <Button
+                type="submit"
+                className={"bg-secondary text-primary " + cn.videosemibold}
+              >
                 Submit
-              </Button>
+              </Button> */}
             </form>
           </Form>
         </main>
