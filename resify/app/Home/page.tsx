@@ -1,4 +1,5 @@
 import NavbarHome from "@/components/NavbarHome";
+import cn from "@/components/Navbar.module.css";
 import { currentUser, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import Hero from "@/components/Hero";
@@ -27,14 +28,8 @@ export default async function Home() {
         <NavbarHome />
 
         <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#28145C_100%)]" />
-        <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#28145C_100%)]">
-          <div
-            className="relative h-full w-full px-5 py-24"
-            style={{
-              background:
-                "radial-gradient(125% 125% at 50% 10%, #000 40%, #28145C 100%)",
-            }}
-          >
+        <div className="my-20">
+          <div>
             {/* Cards Container */}
             <div
               style={{
@@ -46,69 +41,70 @@ export default async function Home() {
             >
               {/* Card 1 */}
               <div
-                className="card"
+                className="card border border-muted"
                 style={{
-                  background: "#fff",
-                  borderRadius: "8px",
+                  background: "transparent",
+                  borderRadius: "1px",
                   padding: "20px",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                   maxWidth: "300px",
                 }}
               >
-                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }}>
-                  Card Title 1
+                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }} className={"text-secondary " + cn.videosemibold}>
+                  Generate Code
                 </h3>
-                <p style={{ textAlign: "center" }}>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <p style={{ textAlign: "left" }} className={"text-secondary " + cn.videonormal}>
+                  Properties that have previously 
+                  been verified by you will appear 
+                  here. A unique code will be 
+                  generated that you may share.
                 </p>
                 <button
                   style={{
-                    marginTop: "50px",
+                    marginTop: "200px",
                     padding: "10px 20px",
-                    borderRadius: "5px",
+                    borderRadius: "1px",
                     border: "none",
-                    background: "linear-gradient(to right, #4e54c8, #8f94fb)",
-                    color: "#fff",
+                    background: "white",
+                    color: "#000",
                     display: "block",
                     margin: "auto",
                   }}
+                  className={"text-secondary " + cn.videomedium}
                 >
-                  Generate Certificate ID
+                  GET CODE
                 </button>
               </div>
 
               {/* Card 2 */}
               <div
-                className="card"
+                className="card border border-muted"
                 style={{
-                  background: "#fff",
-                  borderRadius: "8px",
+                  background: "transparent",
+                  borderRadius: "1px",
                   padding: "20px",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                   maxWidth: "300px",
-                }}
+                }}                
               >
-                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }}>
-                  Card Title 2
+                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }} className={"text-secondary " + cn.videosemibold}>
+                  Property Verification
                 </h3>
-                <p style={{ textAlign: "center" }}>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <p style={{ textAlign: "left" }} className={"text-secondary " + cn.videonormal}>
+                  Register owned property by verifying identity. Estates will be held in account privately until code is generated.
                 </p>
                 <button
                   style={{
-                    marginTop: "50px",
+                    marginTop: "200px",
                     padding: "10px 20px",
-                    borderRadius: "5px",
-                    border: "none",
-                    background: "linear-gradient(to right, #4e54c8, #8f94fb)",
+                    borderRadius: "1px",
+                    border: "1px solid #fff",
+                    background: "black",
                     color: "#fff",
                     display: "block",
                     margin: "auto",
                   }}
+                  className={"text-secondary " + cn.videomedium}
                 >
-                  Verify Property
+                  VERIFY
                 </button>
               </div>
             </div>
