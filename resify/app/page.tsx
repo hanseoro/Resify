@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from "@/components/Navbar";
 import { currentUser, useUser } from "@clerk/nextjs";
 import axios from "axios";
