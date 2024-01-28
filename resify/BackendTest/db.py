@@ -23,6 +23,8 @@ def add_property(data: dict):
 
     users_col.update_one({"email":data["email"]}, {'$push': {"properties":new_property_id}})
 
+def add_user(data:dict):
+    users_col.insert_one(data)
 
 
 if __name__ == "__main__":

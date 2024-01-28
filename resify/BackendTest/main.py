@@ -21,8 +21,9 @@ def verified_home(item: dict):
 @app.post("/signup_user_data")
 def signup_user_data(info: dict):
     #data = {first_name:"",last_name:"", email:"", phone_number:"", password:"", properties: []}
-    data = []
-    add_user(data)
+    data = info
+    data["properties"] = []
+    add_user(info)
     
     
     
