@@ -18,9 +18,13 @@ def add_property(data: dict):
     users_col.update_one({"email":data["email"]}, {'$push': {"properties":new_property_id}})
 
 def add_user(data:dict):
+    """Adds user to users collection in database"""
     users_col.insert_one(data)
 
+
 def add_token(user_email: str, token: uuid4):
+    """Adds a token and the associated property id to the
+    tokens collections"""
     #get the property id of the user
     properties = users_col.find_one({"email":user_email},{"properties":1})
 
@@ -29,6 +33,8 @@ def add_token(user_email: str, token: uuid4):
 
 
 def check_token(token:uuid4):
+    """Checks if a token is in the database and returns 
+    the information of the property associated with the token"""
     #fetch the house id associated with the token
     property_id = db["tokens"].find_one({"token":token}, {"property":1})
 
