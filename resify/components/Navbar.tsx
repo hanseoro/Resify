@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between">
           <div className="flex space-x-4">
             <a
-              href="#"
+              href="/"
               className={
                 "flex items-center py-5 px-2 text-secondary " + cn.videobold
               }

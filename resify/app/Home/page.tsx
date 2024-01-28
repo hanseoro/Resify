@@ -85,7 +85,7 @@ export default function Home() {
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
   <button
-    className={"mt-40 text-secondary " + cn.videomedium + " px-5 py-2.5 border-none bg-white text-black block mx-auto"}
+    className={"mt-40 text-primary " + cn.videomedium + " px-5 py-2.5 border-none bg-white block mx-auto"}
   >
     GET CODE
   </button>

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Image from 'next/image';
 
 import {
   AlertDialog,
@@ -214,6 +215,23 @@ export default function Home() {
             </form>
           </Form>
         </main>
+        <div
+          style={{
+            position: "relative", // Position the image absolutely
+            left: "630px", // Adjust the distance from the right edge
+            bottom: "200px", // Center vertically
+            transform: "translateY(-50%)", // Adjust for vertical centering
+            zIndex: -1, // Place it behind the content (if needed)
+          }}
+        >
+          <Image
+            src="/housedecal.png" // Replace with your image path
+            alt="House Decal"
+            width="250"
+            height="250"
+            layout="fixed"
+          />
+        </div>
         <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#28145C_100%)]" />
       </div>
     </>
