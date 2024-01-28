@@ -1,4 +1,4 @@
-**About**<br> 
+## About
 Resify helps prevent rental scams by generating property certificates of verified homeowners using the Melissa API. 
 Resify employs a two-layered verification procedure for homeowners to become a verified owner of a property. The first 
 layer involves checking the homeowner's identity using the SSN-Name Verify Web API and comparing their property address using
