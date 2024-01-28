@@ -19,17 +19,17 @@ async function main() {
             closeInput(); 
             return;
         }
+        const addressDetails = {
+            'a1': await getUserInput('Enter address line 1: '),
+            'a2': await getUserInput('Enter adresss line 2 (e.g. Suite/Apt #, if applicable): '),
+            'loc': await getUserInput('Enter city: '),
+            'admarea': await getUserInput('Enter state: '),
+            'postal': await getUserInput('Enter postal code: '),
+            'ctry': "USA"
+        };
 
         let MAK;
         do {
-            const addressDetails = {
-                'a1': await getUserInput('Enter address line 1: '),
-                'loc': await getUserInput('Enter city: '),
-                'admarea': await getUserInput('Enter state: '),
-                'postal': await getUserInput('Enter postal code: '),
-                'ctry': await getUserInput('Enter country: ')
-            };
-
             MAK = await fetchMAK(addressDetails);
 
             if (!MAK) {
