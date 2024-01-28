@@ -84,37 +84,27 @@ export default function Home() {
                 </p>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <button
-                      style={{
-                        marginTop: "200px",
-                        padding: "10px 20px",
-                        borderRadius: "1px",
-                        border: "none",
-                        background: "white",
-                        color: "#000",
-                        display: "block",
-                        margin: "auto",
-                      }}
-                      className={"text-secondary " + cn.videomedium}
-                    >
-                      GET CODE
-                    </button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
+  <button
+    className={"mt-40 text-secondary " + cn.videomedium + " px-5 py-2.5 border-none bg-white text-black block mx-auto"}
+  >
+    GET CODE
+  </button>
+</AlertDialogTrigger>
+                  <AlertDialogContent className={"bg-primary text-secondary " + cn.videosemibold}>
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                        Here is your certificate code:
+                        Please Save This Code:
                       </AlertDialogTitle>
                       <AlertDialogDescription>
                         Jx9R4m2NlFb78PqE3iTk
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogAction>Please Sign Out</AlertDialogAction>
+                      <AlertDialogAction>Close</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
-                GET CODE
+                
               </div>
 
               {/* Card 2 */}
@@ -142,22 +132,12 @@ export default function Home() {
                 </p>
 
                 <a href="/Verify">
-                  <button
-                    style={{
-                      marginTop: "200px",
-                      padding: "10px 20px",
-                      borderRadius: "1px",
-                      border: "1px solid #fff",
-                      background: "black",
-                      color: "#fff",
-                      display: "block",
-                      margin: "auto",
-                    }}
-                    className={"text-secondary " + cn.videomedium}
-                  >
-                    VERIFY
-                  </button>
-                </a>
+  <button
+    className={"mt-40 text-secondary " + cn.videomedium + " px-5 py-2.5 border border-white bg-black text-white block mx-auto"}
+  >
+    VERIFY
+  </button>
+</a>
               </div>
             </div>
           </div>

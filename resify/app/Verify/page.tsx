@@ -104,7 +104,7 @@ export default function Home() {
                   <FormItem>
                     <FormControl>
                       <Input
-                        placeholder="Address Line 2"
+                        placeholder="Address Line 2 (Optional)"
                         {...field}
                         className={"text-secondary " + cn.videomedium}
                       />
@@ -174,6 +174,7 @@ export default function Home() {
                   <FormItem>
                     <FormControl>
                       <Input
+                        type="password"
                         placeholder="SSN"
                         {...field}
                         className={"text-secondary " + cn.videomedium}
@@ -192,7 +193,7 @@ export default function Home() {
                     Submit
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent>
+                <AlertDialogContent className={"bg-primary text-secondary " + cn.videosemibold}>
                   <AlertDialogHeader>
                     <AlertDialogTitle>Verified!</AlertDialogTitle>
                     <AlertDialogDescription>
