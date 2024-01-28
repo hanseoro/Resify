@@ -1,7 +1,8 @@
 import certifi
 from pymongo import MongoClient
+from uuid import uuid4
 
-uri = "mongodb+srv://ihaccess:KBuXDOHcjYKNsJJ6@cluster0.zlaepnf.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://ihaccess:Hl6Sc7fog5OwH61l@cluster0.zlaepnf.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri,tlsCAFile=certifi.where())
 db = client["Resify"]
 users_col = db["users"]
@@ -26,11 +27,27 @@ def add_property(data: dict):
 def add_user(data:dict):
     users_col.insert_one(data)
 
+def add_token(user_email: str, token: uuid4):
+    #get the property id of the user
+    properties = users_col.find_one({"email":user_email},{"properties":1})
 
-if __name__ == "__main__":
-    
-    #props = users_col.find_one({"first_name":"James"}, {"properties":1})
-    #print(db["property"].find_one({"_id" : property_id}))
-    add_property_test = {"address1":"99 Lovelane","address2":"","state":"KS", "zip5":"12312","email":"efkkl@yahoo.com"}
-    add_property(add_property_test)
+    #add property id and token to tokens collections
+    db["tokens"].insert_one({"token":token, "property":properties[0]})
+
+
+def check_token(token:uuid4):
+    #fetch the house id associated with the token
+    property_id = db["tokens"].find_one({"token":token}, {"property":1})
+
+    #get house data from property collections using house id
+    house_data = db["properties"].find_one({"_id":property_id}, {})
+    return house_data
+
+
+#if __name__ == "__main__":
+#    #print(users_col.find_one({'email': 'jamesrich@yahoo.com'},{'properties':1}))
+#     
+#    #print(db["property"].find_one({"_id" : property_id}))
+#    add_property_test = {"address1":"99 Lovelane","address2":"","state":"KS", "zip5":"12312","email":"efkkl@yahoo.com"}
+#    add_property(add_property_test)
    
