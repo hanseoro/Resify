@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { currentUser, useUser } from "@clerk/nextjs";
-const axios = require("axios");
+import axios from "axios";
 // import '../styles/fonts.css';
 
 export default async function Home() {
