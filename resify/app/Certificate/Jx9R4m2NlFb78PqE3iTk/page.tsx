@@ -19,16 +19,16 @@ export default async function Certificate2() {
         <div className="text-center mb-8">
           <h1
             className={
-              "text-2xl font-bold text-white mb-2 my-20 " + cn.videosemibold
+              "text-3xl font-bold text-white mb-2 my-20 " + cn.videosemibold
             }
           >
-            Gaurav Dayal is the Certified Homeowner!
+            105 Straw, Irvine, CA 92618
           </h1>
-          <h1 className={"text-3xl font-bold text-white mb-2 " + cn.videobold}>
-            Property: 105 Straw, Irvine, CA 92618
+          <h1 className={"text-2xl font-bold text-white mb-2 " + cn.videobold}>
+            Certified Owner: Gaurav Dayal
           </h1>
           <p className={"text-md text-gray-300 " + cn.videomedium}>
-            Congratulations on your achievement!
+            Resify Authentified
           </p>
         </div>
         <div
