@@ -5,7 +5,7 @@ import { auth, currentUser, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import Hero from "@/components/Hero";
 import { EmailAddress } from "@clerk/nextjs/server";
-import { Alert } from "reactstrap";
+
 import { useState } from "react";
 
 import cn from "@/components/Navbar.module.css";
@@ -68,31 +68,6 @@ export default function Home() {
                   maxWidth: "300px",
                 }}
               >
-
-                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }} className={"text-secondary " + cn.videosemibold}>
-                  Generate Code
-                </h3>
-                <p style={{ textAlign: "left" }} className={"text-secondary " + cn.videonormal}>
-                  Properties that have previously 
-                  been verified by you will appear 
-                  here. A unique code will be 
-                  generated that you may share.
-                </p>
-                <a
-                  href="/Home"
-                  onClick={alert}
-                  style={{
-                    marginTop: "200px",
-                    padding: "10px 20px",
-                    borderRadius: "1px",
-                    border: "none",
-                    background: "white",
-                    color: "#000",
-                    display: "block",
-                    margin: "auto",
-                  }}
-                  className={"text-secondary " + cn.videomedium}
-                >
                 <h3
                   style={{ margin: "0 0 20px 0", textAlign: "center" }}
                   className={"text-secondary " + cn.videosemibold}
@@ -139,8 +114,7 @@ export default function Home() {
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
-                  GET CODE
-                </button>
+                GET CODE
               </div>
 
               {/* Card 2 */}
@@ -151,29 +125,8 @@ export default function Home() {
                   borderRadius: "1px",
                   padding: "20px",
                   maxWidth: "300px",
-                }}                
+                }}
               >
-
-                <h3 style={{ margin: "0 0 20px 0", textAlign: "center" }} className={"text-secondary " + cn.videosemibold}>
-                  Property Verification
-                </h3>
-                <p style={{ textAlign: "left" }} className={"text-secondary " + cn.videonormal}>
-                  Register owned property by verifying identity. Estates will be held in account privately until code is generated.
-                </p>
-                <a
-                  href="/Verify"
-                  style={{
-                    marginTop: "200px",
-                    padding: "10px 20px",
-                    borderRadius: "1px",
-                    border: "1px solid #fff",
-                    background: "black",
-                    color: "#fff",
-                    display: "block",
-                    margin: "auto",
-                  }}
-                  className={"text-secondary " + cn.videomedium}
-                >
                 <h3
                   style={{ margin: "0 0 20px 0", textAlign: "center" }}
                   className={"text-secondary " + cn.videosemibold}
@@ -187,6 +140,7 @@ export default function Home() {
                   Register owned property by verifying identity. Estates will be
                   held in account privately until code is generated.
                 </p>
+
                 <a href="/Verify">
                   <button
                     style={{
@@ -203,9 +157,7 @@ export default function Home() {
                   >
                     VERIFY
                   </button>
-                  </a>
-                  VERIFY
-                </button>
+                </a>
               </div>
             </div>
           </div>
