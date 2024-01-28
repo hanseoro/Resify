@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import cn from "./Navbar.module.css";
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const HeroSection: React.FC = () => {
   return (
@@ -18,12 +19,23 @@ const HeroSection: React.FC = () => {
           landscape to authenticate property online and in person.
         </p>
 
-    <div className={"flex w-full max-w-sm items-center space-x-2 my-10 text-secondary " + cn.videomedium}>
-      <Input type="email" placeholder="Enter Code" />
-      <Button type="submit" className={"bg-secondary text-primary"}>Find</Button>
-    </div>
-
-
+        <div
+          className={
+            "flex w-full max-w-sm items-center space-x-2 my-10 text-secondary " +
+            cn.videomedium
+          }
+        >
+          <Input type="email" placeholder="Enter Code" />
+          <Button
+            onClick={() =>
+              (window.location.href = "/Certificate/Jx9R4m2NlFb78PqE3iTk")
+            }
+            type="submit"
+            className={"bg-secondary text-primary"}
+          >
+            Find
+          </Button>
+        </div>
       </div>
     </div>
   );
