@@ -1,21 +1,27 @@
+"use client";
 import NavbarHome from "@/components/NavbarHome";
-import { currentUser, useUser } from "@clerk/nextjs";
+import { auth, currentUser, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import Hero from "@/components/Hero";
 import { EmailAddress } from "@clerk/nextjs/server";
+import { Alert } from "reactstrap";
+import { useState } from "react";
+
 // import '../styles/fonts.css';
 
-export default async function Home() {
-  const user = await currentUser();
+export default function Home() {
+  const CallAlert = () => {
+    alert("Your id is");
+  };
 
-  const data = {
+  /* const data = {
     first_name: user?.firstName,
     last_name: user?.lastName,
     email: user?.emailAddresses[0].emailAddress,
     phone_numer: user?.phoneNumbers[0],
   };
-  /* await axios.post("http://127.0.0.1:8000/signup_user_data", data); */
-  console.log(user);
+  await axios.post("http://127.0.0.1:8000/signup_user_data", data); å
+  console.log(user); */
   return (
     <>
       <div
@@ -62,20 +68,26 @@ export default async function Home() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <button
+                <a
+                  href="/Home"
+                  onClick={alert}
                   style={{
+                    display: "block", // Use inline-block for proper alignment
+                    margin: "auto",
                     marginTop: "50px",
                     padding: "10px 20px",
                     borderRadius: "5px",
-                    border: "none",
+                    textDecoration: "none", // Remove underline from link
+                    color: "#fff", // Text color
                     background: "linear-gradient(to right, #4e54c8, #8f94fb)",
-                    color: "#fff",
-                    display: "block",
-                    margin: "auto",
+                    textAlign: "center",
+                    width: "calc(100% - 20px)",
+
+                    alignItems: "center",
                   }}
                 >
                   Generate Certificate ID
-                </button>
+                </a>
               </div>
 
               {/* Card 2 */}
@@ -96,20 +108,25 @@ export default async function Home() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <button
+                <a
+                  href="/Verify"
                   style={{
+                    display: "block", // Use inline-block for proper alignment
+                    margin: "auto",
                     marginTop: "50px",
                     padding: "10px 20px",
                     borderRadius: "5px",
-                    border: "none",
+                    textDecoration: "none", // Remove underline from link
+                    color: "#fff", // Text color
                     background: "linear-gradient(to right, #4e54c8, #8f94fb)",
-                    color: "#fff",
-                    display: "block",
-                    margin: "auto",
+                    textAlign: "center",
+                    width: "calc(100% - 20px)",
+
+                    alignItems: "center",
                   }}
                 >
                   Verify Property
-                </button>
+                </a>
               </div>
             </div>
           </div>
