@@ -31,8 +31,7 @@ async function main() {
         };
 
         let MAK;
-        do {
-            
+        do{
 
             MAK = await fetchMAK(addressDetails);
 
@@ -61,5 +60,5 @@ async function main() {
     }
 }
 
-
 main()
+
