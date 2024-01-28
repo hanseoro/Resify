@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "./Navbar.module.css";
 import { SignInButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
 
 const Navbar: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const Navbar: React.FC = () => {
                   cn.videonormal
                 }
               >
-                Collective
+                <SignOutButton>Collective</SignOutButton>
               </a>
               <a
                 href="#"
