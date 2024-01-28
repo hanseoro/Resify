@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
                   cn.videonormal
                 }
               >
-                <SignOutButton>Sign out</SignOutButton>
+                <SignOutButton>Collective</SignOutButton>
                 
               </a>
               <a
