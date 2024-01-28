@@ -21,16 +21,18 @@ async function main() {
             closeInput(); 
             return;
         }
+         
+        const addressDetails = {
+            'a1': await getUserInput('Enter address line 1: '),
+            'loc': await getUserInput('Enter city: '),
+            'admarea': await getUserInput('Enter state: '),
+            'postal': await getUserInput('Enter postal code: '),
+            'ctry': await getUserInput('Enter country: ')
+        };
 
         let MAK;
         do {
-            const addressDetails = {
-                'a1': await getUserInput('Enter address line 1: '),
-                'loc': await getUserInput('Enter city: '),
-                'admarea': await getUserInput('Enter state: '),
-                'postal': await getUserInput('Enter postal code: '),
-                'ctry': await getUserInput('Enter country: ')
-            };
+            
 
             MAK = await fetchMAK(addressDetails);
 
@@ -46,9 +48,9 @@ async function main() {
             const isNameMatch = (firstName + " " + lastName).trim().toLowerCase() === ownerName.trim().toLowerCase();
             console.log(`Does the user's name match the property owner's name? ${isNameMatch}`);
         
-            const dataToSend = {response:isNameMatch};
+            const dataToSend = {response:isNameMatch,address_details: addressDetails};
     
-            const response = await axios.post('http://127.0.0.1:8000/verified_home', dataToSend);
+            await axios.post('http://127.0.0.1:8000/verified_home', dataToSend);
         }
 
 
@@ -58,4 +60,6 @@ async function main() {
         closeInput();
     }
 }
+
+
 main()
