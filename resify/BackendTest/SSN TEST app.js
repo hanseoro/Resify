@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 const { getUserInput } = require('./UserInput.js');
 const { closeInput } = require('./UserInput.js');
 const verifySSN = require('./LookupSSN.js');
@@ -21,18 +19,17 @@ async function main() {
             closeInput(); 
             return;
         }
-         
         const addressDetails = {
             'a1': await getUserInput('Enter address line 1: '),
+            'a2': await getUserInput('Enter adresss line 2 (e.g. Suite/Apt #, if applicable): '),
             'loc': await getUserInput('Enter city: '),
             'admarea': await getUserInput('Enter state: '),
             'postal': await getUserInput('Enter postal code: '),
-            'ctry': await getUserInput('Enter country: ')
+            'ctry': "USA"
         };
 
         let MAK;
-        do{
-
+        do {
             MAK = await fetchMAK(addressDetails);
 
             if (!MAK) {
@@ -46,19 +43,11 @@ async function main() {
         if (ownerName) {
             const isNameMatch = (firstName + " " + lastName).trim().toLowerCase() === ownerName.trim().toLowerCase();
             console.log(`Does the user's name match the property owner's name? ${isNameMatch}`);
-        
-            const dataToSend = {response:isNameMatch,address_details: addressDetails};
-    
-            await axios.post('http://127.0.0.1:8000/verified_home', dataToSend);
         }
-
-
-
     } catch (error) {
         console.error("Error in main application flow:", error);
         closeInput();
     }
 }
 
-main()
-
+main();
