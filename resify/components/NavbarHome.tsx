@@ -62,7 +62,9 @@ const Navbar: React.FC = () => {
                 textDecoration: "none",
               }}
             >
-              <SignOutButton>Sign out</SignOutButton>
+              <a href="/">
+                <SignOutButton>Sign out</SignOutButton>
+              </a>
             </a>
           </div>
         </div>
