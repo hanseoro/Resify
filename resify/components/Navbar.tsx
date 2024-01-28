@@ -3,6 +3,7 @@ import cn from "./Navbar.module.css";
 import { SignInButton } from "@clerk/nextjs";
 import { SignOutButton } from "@clerk/nextjs";
 
+
 const Navbar: React.FC = () => {
   return (
     <nav className={"bg-primary shadow-lg sticky top-0 z-50"}>
