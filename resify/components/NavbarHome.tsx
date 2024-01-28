@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "./Navbar.module.css";
 import { SignInButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
 
 const Navbar: React.FC = () => {
   return (
@@ -61,7 +62,7 @@ const Navbar: React.FC = () => {
                 textDecoration: "none",
               }}
             >
-              <SignInButton redirectUrl="/Home">Log In</SignInButton>
+              <SignOutButton>Sign out</SignOutButton>
             </a>
           </div>
         </div>
